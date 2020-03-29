@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 style="padding-right: 20px;"> Hi , {{user.username}}</h1>
+            <form method="POST" action="upload/">
+                {% csrf_token %}
+                <label for="fname">Name:</label><br>
+                <input type="text" id="name" name="name" value=""><br>
+                <label for="weight">Weight:</label><br>
+                <input type="text" id="weight" name="weight" value=""><br>
+                <label for="price">Price:</label><br>
+                <input type="text" id="price" name="price" value=""><br>
+                <button type="submit">Submit</button>
+            </form>
+            
+            <a style="padding-bottom: 20px ;" href="{% url 'logout' %}">Logout</a>
+           
+    {% else %}
+        <p> Please Log in to post</p>
+    {% endif %}
+    <div>
+  
+    </div>
+{% endblock %}
+

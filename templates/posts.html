@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    </br><h1>All Products are listed below : </h1>
+    <a style="padding-bottom: 20px ;" href="{% url 'logout' %}">Logout</a>
+    {% for products in form %}
+        <div>
+            <h5>Name: {{products.name}}</h5>
+            <h5>Weight: {{products.weight}}<h5>
+            <h5>Price: {{products.price}}</h5>
+        </div>
+        
+    {% endfor %}
+    
+{% endblock %}
